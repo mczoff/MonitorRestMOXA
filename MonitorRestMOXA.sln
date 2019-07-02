@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorRestMOXA", "MonitorRestMOXA\MonitorRestMOXA.csproj", "{8D048A8C-2225-4DF8-90B6-6FCEA5D578F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorRestMOXA.Core", "MonitorRestMOXA.Core\MonitorRestMOXA.Core.csproj", "{3CAD34F7-FC39-49A7-BD2B-BC1A3A99E7F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D048A8C-2225-4DF8-90B6-6FCEA5D578F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D048A8C-2225-4DF8-90B6-6FCEA5D578F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D048A8C-2225-4DF8-90B6-6FCEA5D578F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D048A8C-2225-4DF8-90B6-6FCEA5D578F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CAD34F7-FC39-49A7-BD2B-BC1A3A99E7F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAD34F7-FC39-49A7-BD2B-BC1A3A99E7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CAD34F7-FC39-49A7-BD2B-BC1A3A99E7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAD34F7-FC39-49A7-BD2B-BC1A3A99E7F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {416C101B-2264-4A80-84EE-26A8CF24C372}
+	EndGlobalSection
+EndGlobal

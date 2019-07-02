@@ -1,0 +1,83 @@
+﻿<mah:MetroWindow
+        x:Class="MonitorRestMOXA.MainWindow"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MonitorRestMOXA"
+        xmlns:viewmodels="clr-namespace:MonitorRestMOXA.ViewModels"
+        mc:Ignorable="d" Name="w_mainWindow"
+        Title="MonitorRestMOXA" Height="450" Width="800">
+
+    <mah:MetroWindow.DataContext>
+        <viewmodels:MainWindowViewModel/>
+    </mah:MetroWindow.DataContext>
+    
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Address:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                <TextBox Text="{Binding AddressMOXARestAPI}" Grid.Column="1" Margin="5"/>
+                <CheckBox IsChecked="{Binding DIReadOnlyIsChecked}" Grid.Column="3" Margin="5" Content="DI readonly"/>
+                <CheckBox IsChecked="{Binding RelayReadOnlyIsChecked}" Grid.Column="4" Margin="5" Content="Relay readonly"/>
+                <Button Command="{Binding RefreshBoundCommand}" Grid.Column="5" Margin="5" Content="Refresh"/>
+                <Button Command="{Binding CreateBoundCommand}" Grid.Column="6" Margin="5" Content="Connect"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ItemsControl ItemsSource="{Binding DIContacts}" HorizontalContentAlignment="Stretch">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="125">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label FontSize="26" HorizontalContentAlignment="Center" Content="{Binding Label}"/>
+                                <mah:ToggleSwitch CheckChangedCommand="{Binding ElementName=w_mainWindow, Path=DataContext.DIStatusChangedCommand}" IsChecked="{Binding DigitalInput.Status}" OffLabel="0" OnLabel="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+            <Grid Grid.Row="2">
+                <ItemsControl ItemsSource="{Binding RelayContacts}" HorizontalContentAlignment="Stretch">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="125">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label FontSize="26" HorizontalContentAlignment="Center" Content="{Binding Label}"/>
+                                <mah:ToggleSwitch CheckChangedCommand="{Binding ElementName=w_mainWindow, Path=DataContext.RelayStatusChangedCommand}" IsChecked="{Binding Relay.Status}" OffLabel="0" OnLabel="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>
